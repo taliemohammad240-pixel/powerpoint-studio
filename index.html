@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PowerPoint Studio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">P</div>
+
+            <div>
+                <div class="brand-title">PowerPoint</div>
+                <div class="brand-subtitle">STUDIO</div>
+            </div>
+        </div>
+
+        <div class="sidebar-line"></div>
+
+        <div class="menu-title">ساخت ارائه</div>
+
+        <button class="menu-item active">
+            <span>✨</span>
+            <span>ساخت پاورپوینت</span>
+        </button>
+
+        <button class="menu-item" id="clearBtn">
+            <span>🗑️</span>
+            <span>پاک کردن</span>
+        </button>
+
+        <div class="sidebar-bottom">
+
+            <div class="status-card">
+                <div class="status-dot"></div>
+
+                <div>
+                    <strong>سیستم آماده است</strong>
+                    <small>PowerPoint Engine</small>
+                </div>
+            </div>
+
+            <div class="version">
+                PowerPoint Studio v1.0
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <h1>ساخت پاورپوینت</h1>
+                <p>ایده‌ات را به یک ارائه حرفه‌ای تبدیل کن 🚀</p>
+            </div>
+
+            <div class="top-actions">
+                <span class="online">
+                    <span></span>
+                    آنلاین
+                </span>
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <!-- SETTINGS -->
+            <div class="panel settings-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>تنظیمات ارائه</h2>
+                        <p>مشخصات پاورپوینت خودت را انتخاب کن</p>
+                    </div>
+
+                    <div class="panel-icon">⚙️</div>
+                </div>
+
+
+                <div class="settings-grid">
+
+                    <div class="field">
+                        <label>عنوان ارائه</label>
+
+                        <input
+                            id="presentationTitle"
+                            type="text"
+                            placeholder="مثلاً: شغل پزشکی"
+                            value="PowerPoint Studio"
+                        >
+                    </div>
+
+
+                    <div class="field">
+                        <label>نام فایل</label>
+
+                        <input
+                            id="fileName"
+                            type="text"
+                            placeholder="presentation"
+                            value="PowerPoint_Studio"
+                        >
+                    </div>
+
+
+                    <div class="field">
+                        <label>قالب طراحی</label>
+
+                        <select id="theme">
+
+                            <option value="dark">Dark Space</option>
+                            <option value="blue">Ocean Blue</option>
+                            <option value="purple">Purple Vision</option>
+                            <option value="clean">Clean White</option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="field">
+                        <label>نسبت تصویر</label>
+
+                        <select id="layout">
+
+                            <option value="LAYOUT_WIDE">16:9 — Wide</option>
+                            <option value="LAYOUT_STANDARD">4:3 — Standard</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EDITOR -->
+            <div class="workspace">
+
+                <!-- INPUT -->
+                <div class="panel editor-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>محتوای ارائه</h2>
+                            <p>
+                                می‌توانی اسلایدها را دستی مشخص کنی یا اجازه بده برنامه خودش تقسیم کند.
+                            </p>
+                        </div>
+
+                        <div class="slide-counter">
+                            <span id="slideCount">0</span>
+                            اسلاید
+                        </div>
+
+                    </div>
+
+
+                    <textarea
+                        id="contentInput"
+                        placeholder="[اسلاید ۱]
+
+عنوان اسلاید
+متن اسلاید را اینجا بنویس...
+
+[اسلاید ۲]
+
+عنوان بعدی
+متن اسلاید...
+
+اگر شماره اسلاید ننویسی، برنامه خودش متن را تقسیم می‌کند."
+                    ></textarea>
+
+
+                    <div class="editor-footer">
+
+                        <div class="tips">
+                            💡 برای جدا کردن اسلایدها از [اسلاید ۱] استفاده کن.
+                        </div>
+
+                        <button class="primary-btn" id="generateBtn">
+                            <span>🚀</span>
+                            ساخت پاورپوینت
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREVIEW -->
+                <div class="panel preview-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>پیش‌نمایش</h2>
+                            <p>نمای کلی اسلایدهای ارائه</p>
+                        </div>
+
+                        <div class="preview-badge">
+                            LIVE
+                        </div>
+
+                    </div>
+
+
+                    <div id="previewArea" class="preview-area">
+
+                        <div class="empty-preview">
+
+                            <div class="empty-icon">
+                                📊
+                            </div>
+
+                            <h3>هنوز اسلایدی ساخته نشده</h3>
+
+                            <p>
+                                متن خودت را وارد کن تا پیش‌نمایش اینجا نمایش داده شود.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFO -->
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <div class="info-icon">⚡</div>
+
+                    <div>
+                        <strong>ساخت سریع</strong>
+                        <span>فایل پاورپوینت مستقیماً در مرورگر ساخته می‌شود.</span>
+                    </div>
+                </div>
+
+
+                <div class="info-card">
+                    <div class="info-icon">🔒</div>
+
+                    <div>
+                        <strong>خصوصی</strong>
+                        <span>متن ارائه برای ساخت فایل به سرور اختصاصی ارسال نمی‌شود.</span>
+                    </div>
+                </div>
+
+
+                <div class="info-card">
+                    <div class="info-icon">🌐</div>
+
+                    <div>
+                        <strong>آنلاین</strong>
+                        <span>قابل اجرا روی GitHub Pages و دامنه شخصی.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="toast" class="toast">
+    <span id="toastIcon">✓</span>
+    <span id="toastText">انجام شد</span>
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
